@@ -47,14 +47,23 @@ DASHBOARD_HTML = """
     .sidebar {
       width: 280px;
       height: 100vh;
-      background: #111827;
-      border-right: 1px solid #1f2937;
+      background: #0f172a;
+      border-right: 1px solid #1e293b;
       position: fixed;
       left: 0;
       top: 0;
       display: flex;
       flex-direction: column;
       z-index: 50;
+      box-shadow: 4px 0 24px rgba(0,0,0,0.5);
+    }
+    .sidebar h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #475569;
+      margin: 24px 24px 8px;
+      font-weight: 700;
     }
     .main-content {
       flex: 1;
