@@ -194,7 +194,20 @@ DASHBOARD_HTML = """
         <span class="nav-icon">🤖</span>
         <span>AI Insights</span>
       </a>
-      <!-- More sections will go here -->
+
+      <h2>Management</h2>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📦</span>
+        <span>Inventory</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">👥</span>
+        <span>Team</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">⚙️</span>
+        <span>Settings</span>
+      </a>
     </nav>
   </aside>
 
