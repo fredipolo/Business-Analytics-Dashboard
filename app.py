@@ -65,6 +65,31 @@ DASHBOARD_HTML = """
       margin: 24px 24px 8px;
       font-weight: 700;
     }
+    .brand {
+      padding: 32px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid #1e293b;
+    }
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+    }
+    .brand-name {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #f8fafc;
+      letter-spacing: -0.5px;
+    }
+
     .main-content {
       flex: 1;
       margin-left: 280px;
@@ -106,7 +131,11 @@ DASHBOARD_HTML = """
 </head>
 <body>
   <aside class="sidebar">
-    <!-- Sidebar content will go here -->
+    <div class="brand">
+      <div class="brand-logo">📊</div>
+      <div class="brand-name">Analytica Pro</div>
+    </div>
+    <!-- Navigation sections will go here -->
   </aside>
 
   <main class="main-content">
