@@ -30,7 +30,7 @@ python app.py
 docker build -t business-analytics-dashboard .
 docker run -p 5000:5000 business-analytics-dashboard
 ```
-Visit: http://54.221.106.92/
+Visit:http://54.221.106.92/#
 
 ## Deployment Steps
 
