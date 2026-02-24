@@ -90,6 +90,40 @@ DASHBOARD_HTML = """
       letter-spacing: -0.5px;
     }
 
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 24px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .nav-item:hover {
+      background: rgba(59, 130, 246, 0.05);
+      color: #3b82f6;
+    }
+    .nav-item.active {
+      color: #3b82f6;
+      background: rgba(59, 130, 246, 0.1);
+    }
+    .nav-item.active::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #3b82f6;
+      border-radius: 0 4px 4px 0;
+    }
+    .nav-icon {
+      font-size: 1.2rem;
+    }
+
     .main-content {
       flex: 1;
       margin-left: 280px;
@@ -135,7 +169,19 @@ DASHBOARD_HTML = """
       <div class="brand-logo">📊</div>
       <div class="brand-name">Analytica Pro</div>
     </div>
-    <!-- Navigation sections will go here -->
+    
+    <nav>
+      <h2>Main</h2>
+      <a href="#" class="nav-item active">
+        <span class="nav-icon">🏠</span>
+        <span>Overview</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">⚡</span>
+        <span>Live Feed</span>
+      </a>
+      <!-- More sections will go here -->
+    </nav>
   </aside>
 
   <main class="main-content">
