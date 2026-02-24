@@ -41,7 +41,7 @@ jobs:
           cache-to: type=inline
 
       - name: Image pushed successfully
-        run: echo "✅ Docker image pushed to Docker Hub"
+        run: echo " Docker image pushed to Docker Hub"
 
   # Job 2: Deploy to AWS EC2
   deploy:
@@ -70,11 +70,11 @@ jobs:
               -p 80:5000 \
               ${{ secrets.DOCKER_USERNAME }}/business-analytics-dashboard:latest
             docker image prune -f
-            echo "✅ Deployment complete!"
+            echo " Deployment complete!"
 
       - name: Verify Deployment
         run: |
-          echo "✅ Business Analytics Dashboard deployed to AWS EC2"
+          echo " Business Analytics Dashboard deployed to AWS EC2"
           echo "🔗 Access at: http://${{ secrets.EC2_HOST }}"
 
       - name: Health Check

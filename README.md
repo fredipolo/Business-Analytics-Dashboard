@@ -54,11 +54,11 @@ ansible-playbook -i inventory.ini site.yml
 Set the following repository secrets in GitHub:
 - `DOCKER_USERNAME` — Docker Hub username
 - `DOCKER_PASSWORD` — Docker Hub access token
-- `EC2_HOST` — your EC2 public IP
+- `EC2_HOST` — EC2 public IP
 - `EC2_USERNAME` — `ubuntu`
-- `EC2_SSH_KEY` — your private SSH key contents
+- `EC2_SSH_KEY` — private SSH key contents
 
-Copy `cicd-files/.github/` to `.github/` in your repo root. Every push to `main` will automatically build, push, and deploy.
+Copy `cicd-files/.github/` to `.github/` in repo root. Every push to `main` will automatically build, push, and deploy.
 
 ## Repository Structure
 ```
