@@ -1,0 +1,18 @@
+# ============================================================
+# site.yml - Master Playbook
+# Run with: ansible-playbook -i inventory.ini site.yml
+# ============================================================
+
+---
+- name: Configure Business Analytics Dashboard Server
+  hosts: analytics_dashboard_servers
+  become: true
+  vars:
+    docker_image: "fredipolodev/business-analytics-dashboard:latest"
+    app_port: 5000
+    host_port: 80
+    container_name: "analytics-dashboard"
+
+  roles:
+    - docker
+    - app

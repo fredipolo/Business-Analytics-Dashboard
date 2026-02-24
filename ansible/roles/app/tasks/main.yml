@@ -1,0 +1,42 @@
+# ============================================================
+# roles/app/tasks/main.yml
+# Deploys the Business Analytics Dashboard container
+# ============================================================
+
+---
+- name: Pull latest Business Analytics Dashboard image from Docker Hub
+  shell: docker pull {{ docker_image }}
+
+- name: Stop existing container (if running)
+  shell: docker stop {{ container_name }} || true
+
+- name: Remove existing container (if any)
+  shell: docker rm {{ container_name }} || true
+
+- name: Deploy Business Analytics Dashboard container
+  shell: |
+    docker run -d \
+      --name {{ container_name }} \
+      --restart always \
+      -p {{ host_port }}:{{ app_port }} \
+      {{ docker_image }}
+
+- name: Verify container is running
+  shell: docker ps --filter "name={{ container_name }}" --format "table {{ '{{' }}.Names{{ '}}' }}\t{{ '{{' }}.Status{{ '}}' }}\t{{ '{{' }}.Ports{{ '}}' }}"
+  register: container_status
+  changed_when: false
+
+- name: Print container status
+  debug:
+    msg: "{{ container_status.stdout }}"
+
+- name: Wait for application to be ready
+  wait_for:
+    host: localhost
+    port: "{{ host_port }}"
+    timeout: 60
+    msg: "Business Analytics Dashboard did not start within 60 seconds"
+
+- name: Deployment success
+  debug:
+    msg: "Business Analytics Dashboard is live at http://{{ ansible_host }}"
