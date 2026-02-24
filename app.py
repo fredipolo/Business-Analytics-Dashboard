@@ -123,6 +123,20 @@ DASHBOARD_HTML = """
     .nav-icon {
       font-size: 1.2rem;
     }
+    .nav-badge {
+      background: #2563eb;
+      color: white;
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 12px;
+      margin-left: auto;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(37,99,235,0.4);
+    }
+    .nav-badge.new {
+      background: #10b981;
+      box-shadow: 0 2px 6px rgba(16,185,129,0.4);
+    }
 
     .main-content {
       flex: 1;
@@ -193,6 +207,7 @@ DASHBOARD_HTML = """
       <a href="#" class="nav-item">
         <span class="nav-icon">🤖</span>
         <span>AI Insights</span>
+        <span class="nav-badge new">NEW</span>
       </a>
 
       <h2>Management</h2>
