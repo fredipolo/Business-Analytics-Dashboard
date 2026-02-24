@@ -180,6 +180,20 @@ DASHBOARD_HTML = """
         <span class="nav-icon">⚡</span>
         <span>Live Feed</span>
       </a>
+      
+      <h2>Analytics</h2>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">💰</span>
+        <span>Revenue</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">👤</span>
+        <span>Customers</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">🤖</span>
+        <span>AI Insights</span>
+      </a>
       <!-- More sections will go here -->
     </nav>
   </aside>
