@@ -41,7 +41,29 @@ DASHBOARD_HTML = """
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; }
+    body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; display: flex; overflow-x: hidden; }
+    
+    /* Layout Containers */
+    .sidebar {
+      width: 280px;
+      height: 100vh;
+      background: #111827;
+      border-right: 1px solid #1f2937;
+      position: fixed;
+      left: 0;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      z-index: 50;
+    }
+    .main-content {
+      flex: 1;
+      margin-left: 280px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
     header {
       background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
       padding: 24px 40px;
@@ -67,47 +89,53 @@ DASHBOARD_HTML = """
     }
     .chart-box h2 { font-size: 1rem; color: #cbd5e1; margin-bottom: 18px; font-weight: 600; }
     footer {
-      text-align: center; padding: 20px;
+      text-align: center; padding: 20px; margin-top: auto;
       color: #475569; font-size: 0.8rem; border-top: 1px solid #1e293b;
     }
     footer span { color: #2563eb; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>📈 Business Analytics Dashboard</h1>
-    <span>Deployed with Docker &nbsp;|&nbsp; Automated with Terraform &amp; Ansible &nbsp;|&nbsp; CI/CD via GitHub Actions</span>
-  </header>
+  <aside class="sidebar">
+    <!-- Sidebar content will go here -->
+  </aside>
 
-  <div class="metrics">
-    <div class="card">
-      <h3>Total Revenue</h3>
-      <div class="value">${{ "{:,}".format(data.total_revenue) }}</div>
-    </div>
-    <div class="card">
-      <h3>Units Sold</h3>
-      <div class="value">{{ "{:,}".format(data.units_sold) }}</div>
-    </div>
-    <div class="card">
-      <h3>Avg Order Value</h3>
-      <div class="value">${{ "{:.2f}".format(data.avg_order_value) }}</div>
-    </div>
-  </div>
+  <main class="main-content">
+    <header>
+      <h1>📈 Business Analytics Dashboard</h1>
+      <span>Deployed with Docker &nbsp;|&nbsp; Automated with Terraform &amp; Ansible &nbsp;|&nbsp; CI/CD via GitHub Actions</span>
+    </header>
 
-  <div class="charts">
-    <div class="chart-box">
-      <h2>Monthly Revenue Trend</h2>
-      <canvas id="revenueChart"></canvas>
+    <div class="metrics">
+      <div class="card">
+        <h3>Total Revenue</h3>
+        <div class="value">${{ "{:,}".format(data.total_revenue) }}</div>
+      </div>
+      <div class="card">
+        <h3>Units Sold</h3>
+        <div class="value">{{ "{:,}".format(data.units_sold) }}</div>
+      </div>
+      <div class="card">
+        <h3>Avg Order Value</h3>
+        <div class="value">${{ "{:.2f}".format(data.avg_order_value) }}</div>
+      </div>
     </div>
-    <div class="chart-box">
-      <h2>Top Products by Sales</h2>
-      <canvas id="productsChart"></canvas>
-    </div>
-  </div>
 
-  <footer>
-    <span>Business Analytics Dashboard</span> &nbsp;|&nbsp; Automated Cloud Deployment &nbsp;|&nbsp; B9IS121 Assessment
-  </footer>
+    <div class="charts">
+      <div class="chart-box">
+        <h2>Monthly Revenue Trend</h2>
+        <canvas id="revenueChart"></canvas>
+      </div>
+      <div class="chart-box">
+        <h2>Top Products by Sales</h2>
+        <canvas id="productsChart"></canvas>
+      </div>
+    </div>
+
+    <footer>
+      <span>Business Analytics Dashboard</span> &nbsp;|&nbsp; Automated Cloud Deployment &nbsp;|&nbsp; B9IS121 Assessment
+    </footer>
+  </main>
 
   <script>
     const months = {{ months|tojson }};
