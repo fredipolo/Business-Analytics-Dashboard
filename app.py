@@ -138,6 +138,38 @@ DASHBOARD_HTML = """
       box-shadow: 0 2px 6px rgba(16,185,129,0.4);
     }
 
+    .sidebar-footer {
+      margin-top: auto;
+      padding: 20px 24px;
+      border-top: 1px solid #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      background: #334155;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+    .user-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .user-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #f1f5f9;
+    }
+    .user-role {
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+
     .main-content {
       flex: 1;
       margin-left: 280px;
@@ -224,6 +256,14 @@ DASHBOARD_HTML = """
         <span>Settings</span>
       </a>
     </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-avatar">👤</div>
+      <div class="user-info">
+        <span class="user-name">Alex Johnston</span>
+        <span class="user-role">Business Analyst</span>
+      </div>
+    </div>
   </aside>
 
   <main class="main-content">
