@@ -178,6 +178,23 @@ DASHBOARD_HTML = """
       flex-direction: column;
     }
 
+    /* Responsive Adjustments */
+    @media (max-width: 1024px) {
+      .sidebar { width: 80px; }
+      .brand-name, .nav-item span:not(.nav-icon), .nav-badge, .user-info, .sidebar h2 { display: none; }
+      .brand, .nav-item, .sidebar-footer { justify-content: center; padding-left: 0; padding-right: 0; }
+      .main-content { margin-left: 80px; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .charts { grid-template-columns: 1fr; }
+    }
+    
+    @media (max-width: 640px) {
+      .sidebar { display: none; }
+      .main-content { margin-left: 0; }
+      .metrics { grid-template-columns: 1fr; }
+      header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+
     header {
       background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
       padding: 24px 40px;
