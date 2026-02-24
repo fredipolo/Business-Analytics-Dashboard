@@ -30,7 +30,7 @@ python app.py
 docker build -t business-analytics-dashboard .
 docker run -p 5000:5000 business-analytics-dashboard
 ```
-Visit: http://localhost:5000
+Visit: http://54.221.106.92/
 
 ## Deployment Steps
 
@@ -52,8 +52,8 @@ ansible-playbook -i inventory.ini site.yml
 
 ### 3. CI/CD - GitHub Actions
 Set the following repository secrets in GitHub:
-- `DOCKER_USERNAME` — your Docker Hub username
-- `DOCKER_PASSWORD` — your Docker Hub access token
+- `DOCKER_USERNAME` — Docker Hub username
+- `DOCKER_PASSWORD` — Docker Hub access token
 - `EC2_HOST` — your EC2 public IP
 - `EC2_USERNAME` — `ubuntu`
 - `EC2_SSH_KEY` — your private SSH key contents
