@@ -195,6 +195,20 @@ DASHBOARD_HTML = """
       header { flex-direction: column; align-items: flex-start; gap: 8px; }
     }
 
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideInLeft {
+      from { transform: translateX(-20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .sidebar { animation: slideInLeft 0.5s ease-out forwards; }
+    .card { animation: fadeIn 0.5s ease-out forwards; }
+    .chart-box { animation: fadeIn 0.7s ease-out forwards; }
+    .nav-item { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+
     header {
       background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
       padding: 24px 40px;
